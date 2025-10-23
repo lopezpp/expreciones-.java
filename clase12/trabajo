@@ -1,0 +1,37 @@
+package EquipoFutbol;
+
+// Clase padre
+public class Jugador {
+    protected String nombre;
+    protected String posicion;
+    protected boolean enJuego;
+
+    public Jugador(String nombre, String posicion) {
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.enJuego = false;
+    }
+
+    public void entrarAlCampo() {
+        if (!enJuego) {
+            enJuego = true;
+            System.out.println(nombre + " (" + posicion + ") ha entrado al campo.");
+        } else {
+            System.out.println(nombre + " ya está en el campo.");
+        }
+    }
+
+    public void salirDelCampo() {
+        if (enJuego) {
+            enJuego = false;
+            System.out.println(nombre + " (" + posicion + ") ha salido del campo.");
+        } else {
+            System.out.println(nombre + " ya estaba fuera del campo.");
+        }
+    }
+
+    public void mostrarEstado() {
+        String estado = enJuego ? "jugando" : "fuera del campo";
+        System.out.println("El jugador " + nombre + " está actualmente " + estado + ".");
+    }
+}
